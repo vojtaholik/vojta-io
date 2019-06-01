@@ -2,5 +2,7 @@ node_modules
 .cache
 public
 .DS_store
+.env.development
+.env.production
 /content/screenshots.sketch
 .*
