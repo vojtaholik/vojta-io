@@ -28,6 +28,7 @@
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-remark": "^2.2.5",
     "gatsby-transformer-sharp": "^2.1.10",
+    "http-proxy-middleware": "^0.19.1",
     "lint-staged": "^8.1.5",
     "lodash": "^4.17.11",
     "mdx-blocks": "^0.0.13",

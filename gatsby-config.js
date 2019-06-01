@@ -1,6 +1,21 @@
 const path = require('path')
+const proxy = require('http-proxy-middleware')
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   siteMetadata: {
     title: `Vojta's digital drawer`,
     description: `Sometimes I put screenshots of stuff I've worked on inside a special
