@@ -20,7 +20,7 @@ export default async function Home() {
             Design Engineer
           </h1>
           <h2 className="absolute left-[8%] bottom-5 text-lg max-w-[280px] ml-2 font-light">
-            I craft full-stack learning platforms that don't suck — used by
+            I craft full-stack learning platforms that don&apos;t suck — used by
             Apple, Netflix, and thousands of devs.
           </h2>
         </section>
@@ -49,7 +49,7 @@ export default async function Home() {
             Design Engineer
           </h1>
           <h2 className="text-[1.97vw] ml-2 text-nowrap font-light">
-            I craft full-stack learning platforms that don't suck — used by
+            I craft full-stack learning platforms that don&apos;t suck — used by
             Apple, Netflix, and thousands of devs.
           </h2>
         </section>
@@ -64,7 +64,7 @@ export default async function Home() {
               <h2 className="text-4xl mb-8 font-semibold">About me</h2>
               <div className="flex text-lg flex-col gap-5 font-light leading-relaxed">
                 <p>
-                  I'm <strong>Vojta Holik</strong> — co-founder of{" "}
+                  I&apos;m <strong>Vojta Holik</strong> — co-founder of{" "}
                   <Link
                     className="font-semibold"
                     href="https://badass.dev"
@@ -76,7 +76,8 @@ export default async function Home() {
                   developer courses on the internet.
                 </p>
                 <p>
-                  Since 2020, I've been building custom course platforms with{" "}
+                  Since 2020, I&apos;ve been building custom course platforms
+                  with{" "}
                   <Link
                     className="font-semibold"
                     href="https://x.com/jhooks"
@@ -95,8 +96,8 @@ export default async function Home() {
                   ) using our open-source CMS, Course Builder.
                 </p>
                 <p>
-                  I've helped creators like <strong>Kent C. Dodds</strong> and{" "}
-                  <strong>Matt Pocock</strong> teach millions with fast,
+                  I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
+                  and <strong>Matt Pocock</strong> teach millions with fast,
                   opinionated, battle-tested platforms — used by teams at{" "}
                   <strong>Apple</strong>, <strong>EA</strong>,{" "}
                   <strong>Netflix</strong>, and more.
@@ -122,7 +123,7 @@ export default async function Home() {
               <h2 className="text-6xl mb-14 font-semibold">About me</h2>
               <div className="flex xl:text-2xl text-xl flex-col gap-10 font-light leading-relaxed max-w-xl">
                 <p>
-                  I'm <strong>Vojta Holik</strong> — co-founder of{" "}
+                  I&apos;m <strong>Vojta Holik</strong> — co-founder of{" "}
                   <Link
                     className="font-semibold"
                     href="https://badass.dev"
@@ -134,7 +135,8 @@ export default async function Home() {
                   developer courses on the internet.
                 </p>
                 <p>
-                  Since 2020, I've been building custom course platforms with{" "}
+                  Since 2020, I&apos;ve been building custom course platforms
+                  with{" "}
                   <Link
                     className="font-semibold"
                     href="https://x.com/jhooks"
@@ -153,8 +155,8 @@ export default async function Home() {
                   ) using our open-source CMS, Course Builder.
                 </p>
                 <p>
-                  I've helped creators like <strong>Kent C. Dodds</strong> and{" "}
-                  <strong>Matt Pocock</strong> teach millions with fast,
+                  I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
+                  and <strong>Matt Pocock</strong> teach millions with fast,
                   opinionated, battle-tested platforms — used by teams at{" "}
                   <strong>Apple</strong>, <strong>EA</strong>,{" "}
                   <strong>Netflix</strong>, and more.
@@ -180,8 +182,8 @@ export default async function Home() {
               <p>
                 Course Builder is a technical implementation of a full-stack
                 course framework. It's a way to build a course that represents
-                the experience we've had building courses for the last 10 years
-                at egghead and Badass Courses.{" "}
+                the experience we&apos;ve had building courses for the last 10
+                years at egghead and Badass Courses.{" "}
                 <strong>
                   Products listed below are all built on top of Course Builder.
                 </strong>
@@ -277,8 +279,9 @@ export default async function Home() {
                 <p>
                   A live workshop series on building real-world AI systems using
                   Model Context Protocols (MCPs). We’re running live-first,
-                  iterating fast, and we've built the platform to support it:
-                  calendar scheduling, multi-day ticketing, and real-time sales.
+                  iterating fast, and we&apos;ve built the platform to support
+                  it: calendar scheduling, multi-day ticketing, and real-time
+                  sales.
                 </p>
               </>
             }
