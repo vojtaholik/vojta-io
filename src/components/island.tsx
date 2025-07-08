@@ -53,12 +53,12 @@ export default function Island() {
         {isInView === "about-me" && (
           <motion.div
             key="face"
-            className="flex items-center justify-center relative w-16 h-16 aspect-square rounded-full"
-            initial={{ y: 100 }}
-            animate={{ y: 0 }}
-            exit={{ y: -100 }}
+            className="flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{
-              duration: 0.2,
+              duration: 0.15,
               ease: "easeInOut",
             }}
           >

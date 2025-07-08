@@ -6,13 +6,15 @@ import { getAllFontClasses } from "@/lib/fonts"
 export const metadata: Metadata = {
   title: "Vojta Holik — Design Engineer",
   description:
-    "I craft full-stack learning platforms that don&apos;t suck — used by Apple, Netflix, and thousands of devs.",
+    "Vojta crafts full-stack learning platforms that don't suck — used by Apple, Netflix, and thousands of devs.",
   icons: {
     icon: [
       { url: "/icon.ico" },
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
   },
+  // safar color
+  themeColor: "#F8F4EC",
   openGraph: {
     images: [
       {
@@ -23,9 +25,9 @@ export const metadata: Metadata = {
     ],
     title: "Vojta Holik — Design Engineer",
     description:
-      "I craft full-stack learning platforms that don&apos;t suck — used by Apple, Netflix, and thousands of devs.",
+      "Vojta crafts full-stack learning platforms that don't suck — used by Apple, Netflix, and thousands of devs.",
     type: "website",
-    siteName: "Vojta Holik",
+    siteName: "vojta.io",
     url: "https://vojta.io",
 
     locale: "en_US",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vojta Holik — Design Engineer",
     description:
-      "I craft full-stack learning platforms that don&apos;t suck — used by Apple, Netflix, and thousands of devs.",
+      "Vojta crafts full-stack learning platforms that don't suck — used by Apple, Netflix, and thousands of devs.",
     images: [
       {
         url: "/og-image.png",
