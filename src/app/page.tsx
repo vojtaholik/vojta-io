@@ -99,8 +99,10 @@ export default async function Home() {
                   I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
                   and <strong>Matt Pocock</strong> teach millions with fast,
                   opinionated, battle-tested platforms — used by teams at{" "}
-                  <strong>Apple</strong>, <strong>EA</strong>,{" "}
-                  <strong>Netflix</strong>, and more.
+                  <strong className="bg-foreground text-green-background px-1 py-0.5">
+                    Apple, EA, Netflix
+                  </strong>
+                  , and more.
                 </p>
               </div>
             </article>
@@ -158,8 +160,10 @@ export default async function Home() {
                   I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
                   and <strong>Matt Pocock</strong> teach millions with fast,
                   opinionated, battle-tested platforms — used by teams at{" "}
-                  <strong>Apple</strong>, <strong>EA</strong>,{" "}
-                  <strong>Netflix</strong>, and more.
+                  <strong className="bg-foreground text-green-background px-1 py-0.5">
+                    Apple, EA, Netflix
+                  </strong>
+                  , and more.
                 </p>
               </div>
             </article>
