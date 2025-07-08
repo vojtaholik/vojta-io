@@ -56,8 +56,6 @@ interface PortfolioSectionProps {
 export default function PortfolioSection({
   contentPosition,
   backgroundColor,
-  selectionBg,
-  selectionText,
   title,
   subtitle,
   description,

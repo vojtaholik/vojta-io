@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { useIslandOnSection } from "@/utils/use-island"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
 export default function Section({
   children,

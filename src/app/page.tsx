@@ -181,14 +181,14 @@ export default async function Home() {
             description={
               <p>
                 Course Builder is a technical implementation of a full-stack
-                course framework. It's a way to build a course that represents
-                the experience we&apos;ve had building courses for the last 10
-                years at egghead and Badass Courses.{" "}
+                course framework. It&apos;s a way to build a course that
+                represents the experience we&apos;ve had building courses for
+                the last 10 years at egghead and Badass Courses.{" "}
                 <strong>
                   Products listed below are all built on top of Course Builder.
                 </strong>
               </p>
-            } // It's all of the pieces that you need to launch your own course platform and marketplace.
+            }
             actions={[
               {
                 label: "GitHub ↗︎",
