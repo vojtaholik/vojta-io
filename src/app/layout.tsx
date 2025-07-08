@@ -2,18 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Noise from "@/components/noise"
-import { getAllFontClasses, maisonNeue, maisonNeueMono } from "@/lib/fonts"
-import Script from "next/script"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+import { getAllFontClasses } from "@/lib/fonts"
 
 export const metadata: Metadata = {
   title: "Vojta Holik — Design Engineer",

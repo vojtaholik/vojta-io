@@ -5,7 +5,6 @@ import { getCachedImages } from "@/lib/images-query"
 import { IslandProvider } from "@/utils/use-island"
 import Image from "next/image"
 import Link from "next/link"
-import DecryptedText from "@/components/decrypted-text"
 
 export default async function Home() {
   return (

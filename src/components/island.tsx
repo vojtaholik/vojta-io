@@ -5,6 +5,7 @@ import { useIsland } from "@/utils/use-island"
 import { motion, AnimatePresence } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
+import VojtaHolikFaceDithered from "../../public/vojta-holik-face-dithered.jpg"
 
 export default function Island() {
   const { isInView } = useIsland()
@@ -62,7 +63,7 @@ export default function Island() {
             }}
           >
             <Image
-              src={require("../../public/vojta-holik-face-dithered.jpg")}
+              src={VojtaHolikFaceDithered}
               fill
               className="object-cover"
               quality={100}
