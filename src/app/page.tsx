@@ -328,6 +328,26 @@ export default async function Home() {
             imagesLoader={getCachedImages("epic-web")}
             carouselControlsPosition="left"
           />
+          <Section
+            name="contact"
+            className="rounded-lg xl:p-[150px] p-10 items-center bg-neutral-950 text-background [&_a]:text-background flex flex-col gap-10"
+          >
+            <div className="flex md:w-auto w-full items-center md:flex-row flex-col gap-5">
+              <Link
+                className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
+                href="https://x.com/vojta_holik"
+                target="_blank"
+              >
+                Follow me on X
+              </Link>
+              <Link
+                className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
+                href="mailto:vojta@holik.dev"
+              >
+                Email me ↗︎
+              </Link>
+            </div>
+          </Section>
         </div>
       </main>
     </IslandProvider>
