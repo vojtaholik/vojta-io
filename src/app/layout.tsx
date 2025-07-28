@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import Noise from "@/components/noise"
 import { getAllFontClasses } from "@/lib/fonts"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Vojta Holik — Design Engineer",
@@ -58,6 +59,7 @@ export default function RootLayout({
         className={`${getAllFontClasses()} font-maison-neue antialiased bg-background`}
       >
         {children}
+        <Analytics />
         <Noise />
       </body>
     </html>
