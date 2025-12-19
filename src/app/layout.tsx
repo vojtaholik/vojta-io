@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import Noise from "@/components/noise"
 import { getAllFontClasses } from "@/lib/fonts"
@@ -14,8 +14,6 @@ export const metadata: Metadata = {
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
   },
-  // safar color
-  themeColor: "#F8F4EC",
   openGraph: {
     images: [
       {
@@ -46,6 +44,10 @@ export const metadata: Metadata = {
       },
     ],
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: "#F8F4EC",
 }
 
 export default function RootLayout({

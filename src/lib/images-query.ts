@@ -18,7 +18,20 @@ export async function getImages(dir: string): Promise<ProjectImage[]> {
     }
   )
 
-  const imageFiles = images.filter((item) => item.isFile())
+  const imageExtensions = new Set([
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".gif",
+    ".webp",
+    ".svg",
+    ".avif",
+  ])
+  const imageFiles = images.filter(
+    (item) =>
+      item.isFile() &&
+      imageExtensions.has(path.extname(item.name).toLowerCase())
+  )
 
   const imagesWithDimensions = (
     await Promise.all(
