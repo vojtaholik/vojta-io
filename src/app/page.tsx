@@ -348,6 +348,14 @@ export default async function Home() {
               </Link>
               <Link
                 className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
+                href="https://github.com/vojtaholik"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Browse projects on GitHub ↗
+              </Link>
+              <Link
+                className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
                 href="mailto:vojta@holik.dev"
               >
                 Email me ↗︎
