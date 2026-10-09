@@ -11,20 +11,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { useElementHeight } from "@/utils/use-element-height"
 import { cn } from "@/lib/utils"
+import type { ProjectAction } from "@/content/site"
 import type { ProjectImage } from "@/lib/images"
 import React from "react"
 import Section from "./section"
 
-type ImageData = {
-  w: number
-  h: number
-}
-
-type ActionLink = {
-  label: string
-  url: string
-  type?: "primary" | "secondary"
-}
+const subscribe = () => () => {}
 
 interface PortfolioSectionProps {
   // Layout
@@ -32,18 +24,15 @@ interface PortfolioSectionProps {
 
   // Styling
   backgroundColor: string
-  selectionBg: string
-  selectionText: string
 
   // Content
   title: string
   subtitle?: string
   description: string | React.ReactNode
-  actions?: ActionLink[]
+  actions?: ProjectAction[]
 
   // Images
   imagePath?: string // Carousel directory
-  images?: ImageData[] // For carousel
   imagesLoader?: Promise<ProjectImage[]>
 
   // Carousel specific
@@ -63,7 +52,15 @@ export default function PortfolioSection({
 }: PortfolioSectionProps) {
   const { ref: contentRef, height: contentHeight } =
     useElementHeight<HTMLElement>(400)
-  const images = imagesLoader ? React.use(imagesLoader) : []
+  // The server renders only the first screenshot. The rest mount after
+  // hydration, which keeps dozens of offscreen images out of the HTML.
+  const hydrated = React.useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  )
+  const allImages = imagesLoader ? React.use(imagesLoader) : []
+  const images = hydrated ? allImages : allImages.slice(0, 1)
   const renderContent = () => (
     <article
       ref={contentRef}
@@ -107,7 +104,7 @@ export default function PortfolioSection({
                     : "border-transparent bg-foreground/10"
                 )}
               >
-                {label}
+                {label} ↗︎
               </Link>
             ))}
           </div>

@@ -1,20 +1,27 @@
-import Section from "@/components/section"
-import PortfolioSection from "@/components/portfolio-section"
+import ContactSection from "@/components/contact-section"
 import Island from "@/components/island"
+import JsonLd from "@/components/json-ld"
+import LogoMark from "@/components/logo-mark"
+import PortfolioSection from "@/components/portfolio-section"
+import Section from "@/components/section"
+import { about, projects, site } from "@/content/site"
 import { getCachedImages } from "@/lib/images-query"
+import { homeJsonLd } from "@/lib/json-ld"
+import { pageMetadata } from "@/lib/metadata"
 import { IslandProvider } from "@/utils/use-island"
-import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  GithubIcon,
-  Mail01Icon,
-  NewTwitterIcon,
-} from "@hugeicons/core-free-icons"
 import Image from "next/image"
 import Link from "next/link"
+
+export const metadata = pageMetadata({
+  title: site.title,
+  description: site.description,
+  path: "/",
+})
 
 export default async function Home() {
   return (
     <IslandProvider>
+      <JsonLd data={homeJsonLd()} />
       <main>
         {/* MOBILE */}
         <section
@@ -23,11 +30,10 @@ export default async function Home() {
         >
           <Island />
           <h1 className="absolute right-[70%] bottom-10 translate-x-full origin-left -rotate-90 uppercase tracking-tight leading-none text-[25vw] font-medium">
-            Design Engineer
+            {site.role}
           </h1>
           <h2 className="absolute left-[8%] bottom-5 text-lg max-w-[280px] ml-2 font-light">
-            I craft full-stack learning platforms that don&apos;t suck — used by
-            Apple, Netflix, and thousands of devs.
+            {site.tagline}
           </h2>
         </section>
         {/* DESKTOP */}
@@ -39,24 +45,13 @@ export default async function Home() {
             href="/"
             className="size-24 mb-5 flex p-6 items-center justify-center rounded-full border-4 aspect-square border-foreground"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full relative translate-y-0.5"
-              fill="none"
-              viewBox="0 0 30 30"
-            >
-              <path
-                fill="#000"
-                d="M0 3h5v5H0zm5 5h5v5H5zm0 5h5v5H5zm10 5h5v5h-5zM5 3h5v5H5zm5 0h5v5h-5zm0 10h5v5h-5zm0-5h5v5h-5zm0 10h5v5h-5zM20 3h5v5h-5zm5 0h5v5h-5zM10 23h5v5h-5z"
-              />
-            </svg>
+            <LogoMark className="w-full relative translate-y-0.5" />
           </Link>
           <h1 className="uppercase tracking-tight text-nowrap leading-tight text-[11.05vw] font-medium">
-            Design Engineer
+            {site.role}
           </h1>
-          <h2 className="text-[1.97vw] ml-2 text-nowrap font-light">
-            I craft full-stack learning platforms that don&apos;t suck — used by
-            Apple, Netflix, and thousands of devs.
+          <h2 className="text-[2vw] ml-2 text-nowrap font-light">
+            {site.tagline}
           </h2>
         </section>
         <div className="flex flex-col gap-4 max-w-screen-2xl mx-auto w-full">
@@ -69,47 +64,9 @@ export default async function Home() {
             <article className="py-16 flex flex-col px-8 justify-center">
               <h2 className="text-4xl mb-8 font-semibold">About me</h2>
               <div className="flex text-lg flex-col gap-5 font-light leading-relaxed">
-                <p>
-                  I&apos;m <strong>Vojta Holik</strong> — co-founder of{" "}
-                  <Link
-                    className="font-semibold"
-                    href="https://badass.dev"
-                    target="_blank"
-                  >
-                    badass.dev
-                  </Link>{" "}
-                  and the design engineer behind some of the most successful
-                  developer courses on the internet.
-                </p>
-                <p>
-                  Since 2018, I&apos;ve been building custom course platforms
-                  with{" "}
-                  <Link
-                    className="font-semibold"
-                    href="https://x.com/jhooks"
-                    target="_blank"
-                  >
-                    Joel Hooks
-                  </Link>{" "}
-                  (
-                  <Link
-                    className="font-semibold"
-                    href="https://egghead.io"
-                    target="_blank"
-                  >
-                    egghead.io
-                  </Link>
-                  ) using our own CMS, Course Builder.
-                </p>
-                <p>
-                  I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
-                  and <strong>Matt Pocock</strong> teach millions with fast,
-                  opinionated, battle-tested platforms — used by teams at{" "}
-                  <strong className="bg-foreground text-green-background px-1 py-0.5">
-                    Apple, EA, Netflix
-                  </strong>
-                  , and more.
-                </p>
+                {about.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </article>
             {/* <div className="relative w-full h-24">
@@ -130,47 +87,9 @@ export default async function Home() {
             <article className="py-[110px] flex flex-col justify-center">
               <h2 className="text-6xl mb-14 font-semibold">About me</h2>
               <div className="flex xl:text-2xl text-xl flex-col gap-10 font-light leading-relaxed max-w-xl">
-                <p>
-                  I&apos;m <strong>Vojta Holik</strong> — co-founder of{" "}
-                  <Link
-                    className="font-semibold"
-                    href="https://badass.dev"
-                    target="_blank"
-                  >
-                    badass.dev
-                  </Link>{" "}
-                  and the design engineer behind some of the most successful
-                  developer courses on the internet.
-                </p>
-                <p>
-                  Since 2018, I&apos;ve been building custom course platforms
-                  with{" "}
-                  <Link
-                    className="font-semibold"
-                    href="https://x.com/jhooks"
-                    target="_blank"
-                  >
-                    Joel Hooks
-                  </Link>{" "}
-                  (
-                  <Link
-                    className="font-semibold"
-                    href="https://egghead.io"
-                    target="_blank"
-                  >
-                    egghead.io
-                  </Link>
-                  ) using our own CMS, Course Builder.
-                </p>
-                <p>
-                  I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
-                  and <strong>Matt Pocock</strong> teach millions with fast,
-                  opinionated, battle-tested platforms — used by teams at{" "}
-                  <strong className="bg-foreground text-green-background px-1 py-0.5">
-                    Apple, EA, Netflix
-                  </strong>
-                  , and more.
-                </p>
+                {about.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </article>
             <div className="relative w-full h-full">
@@ -182,289 +101,21 @@ export default async function Home() {
               />
             </div>
           </section>
-          <PortfolioSection
-            contentPosition="left"
-            backgroundColor="violet-background"
-            selectionBg="foreground"
-            selectionText="violet-background"
-            title="AI Coding Dictionary"
-            subtitle="with Matt Pocock"
-            description={
-              <p>
-                Matt wrote a plain-English dictionary of the words people throw
-                around when they talk about AI coding. I designed and built the
-                site for it, a 3D graph of{" "}
-                <strong className="bg-foreground text-violet-background px-1 py-0.5">
-                  71 terms
-                </strong>{" "}
-                with 543 links between them. Click a term and the camera flies
-                to it. Search, and everything that doesn&apos;t match fades
-                out.
-              </p>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://www.aicodingdictionary.com",
-              },
-            ]}
-            imagePath="/ai-coding-dictionary"
-            imagesLoader={getCachedImages("ai-coding-dictionary")}
-            carouselControlsPosition="right"
-          />
-          <PortfolioSection
-            contentPosition="right"
-            backgroundColor="lime-background"
-            selectionBg="foreground"
-            selectionText="lime-background"
-            title="good-css.com"
-            subtitle="open-source agent skill"
-            description={
-              <p>
-                Coding agents know :has(), subgrid and anchor positioning. They
-                rarely reach for them. I built good-css so they do. It packs{" "}
-                <strong className="bg-foreground text-lime-background px-1 py-0.5">
-                  47
-                </strong>{" "}
-                modern CSS techniques into an agent skill, and the site runs
-                every one of them as a live specimen.
-              </p>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://good-css.com",
-              },
-              {
-                label: "GitHub ↗︎",
-                url: "https://github.com/vojtaholik/good-css",
-                type: "secondary",
-              },
-            ]}
-            imagePath="/good-css"
-            imagesLoader={getCachedImages("good-css")}
-            carouselControlsPosition="left"
-          />
-          <PortfolioSection
-            contentPosition="left"
-            backgroundColor="pink-background"
-            selectionBg="foreground"
-            selectionText="pink-background"
-            title="Stick'em Up"
-            subtitle="stickers.badass.dev"
-            description={
-              <p>
-                A clean laptop is a sad laptop. So I built a page where you
-                stick Badass stickers on the lid of a 3D MacBook. I made the
-                stickers too, with a tool I built for it. The music is made
-                right in your browser and builds with every sticker.{" "}
-                <strong className="bg-foreground text-pink-background px-1 py-0.5">
-                  It&apos;s fun
-                </strong>{" "}
-                and you should try it.
-              </p>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://stickers.badass.dev",
-              },
-            ]}
-            imagePath="/stickers"
-            imagesLoader={getCachedImages("stickers")}
-            carouselControlsPosition="right"
-          />
-          <PortfolioSection
-            contentPosition="right"
-            backgroundColor="sand-background"
-            selectionBg="foreground"
-            selectionText="sand-background"
-            title="Course Builder"
-            description={
-              <p>
-                Course Builder is a technical implementation of a full-stack
-                course framework. It&apos;s a way to build a course that
-                represents the experience we&apos;ve had building courses for
-                the last 10 years at egghead and Badass Courses.{" "}
-                <strong>
-                  Products listed below are all built on top of Course Builder.
-                </strong>
-              </p>
-            }
-            imagePath="/course-builder"
-            imagesLoader={getCachedImages("course-builder")}
-            carouselControlsPosition="left"
-          />
-
-          <PortfolioSection
-            contentPosition="left"
-            backgroundColor="yellow-background"
-            selectionBg="foreground"
-            selectionText="yellow-background"
-            title="AI Hero"
-            subtitle="with Matt Pocock"
-            description={
-              <>
-                <p>
-                  AI Hero is our first cohort-based course that flips AI
-                  education on its head — designed from the ground up to be
-                  completed using AI assistants, with{" "}
-                  <strong className="bg-foreground text-yellow-background px-1 py-0.5">
-                    1,000+
-                  </strong>{" "}
-                  developers joining the first cohort in July 2025.
-                </p>
-              </>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://aihero.dev",
-              },
-            ]}
-            imagePath="/ai-hero"
-            imagesLoader={getCachedImages("ai-hero")}
-            carouselControlsPosition="right"
-          />
-
-          <PortfolioSection
-            contentPosition="right"
-            backgroundColor="teal-background"
-            selectionBg="foreground"
-            selectionText="teal-background"
-            title="Total TypeScript"
-            subtitle="with Matt Pocock"
-            description={
-              <p>
-                Total TypeScript is a comprehensive production-grade TypeScript
-                training taught by Matt Pocock. In 2022, I took a crucial part
-                in designing and developing the web experience. Since then,
-                Total TypeScript crossed{" "}
-                <strong className="bg-foreground text-teal-background px-1 py-0.5">
-                  $2.5M
-                </strong>{" "}
-                in sales.
-              </p>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://totaltypescript.com",
-              },
-            ]}
-            imagePath="/total-typescript"
-            images={[
-              { w: 712, h: 414 },
-              { w: 712, h: 414 },
-              { w: 712, h: 433 },
-            ]}
-            imagesLoader={getCachedImages("total-typescript")}
-            carouselControlsPosition="left"
-          />
-          {/* <PortfolioSection
-            contentPosition="left"
-            backgroundColor="purple-background"
-            selectionBg="foreground"
-            selectionText="purple-background"
-            title="Epic AI"
-            subtitle="with Kent C. Dodds"
-            description={
-              <>
-                <p>
-                  A live workshop series on building real-world AI systems using
-                  Model Context Protocols (MCPs). We’re running live-first,
-                  iterating fast, and we&apos;ve built the platform to support
-                  it: calendar scheduling, multi-day ticketing, and real-time
-                  sales.
-                </p>
-              </>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://epicai.pro",
-                type: "primary",
-              },
-            ]}
-            imagePath="/epic-ai"
-            imagesLoader={getCachedImages("epic-ai")}
-            carouselControlsPosition="right"
-          /> */}
-          <PortfolioSection
-            contentPosition="left"
-            backgroundColor="blue-background"
-            selectionBg="foreground"
-            selectionText="blue-background"
-            title="Epic React & Epic Web"
-            subtitle="with Kent C. Dodds"
-            description={
-              <>
-                <p>
-                  When Epic React first launched in 2020, it quickly became the
-                  go-to resource for learning React. I played a key role in
-                  designing and developing the learning experience, which
-                  generated{" "}
-                  <strong className="bg-foreground text-blue-background px-1 py-0.5">
-                    over $1M
-                  </strong>{" "}
-                  in sales during its <strong>first month</strong>.
-                </p>
-              </>
-            }
-            actions={[
-              {
-                label: "View Live ↗︎",
-                url: "https://epicreact.dev",
-                type: "primary",
-              },
-            ]}
-            imagePath="/epic-web"
-            imagesLoader={getCachedImages("epic-web")}
-            carouselControlsPosition="right"
-          />
-          <Section
-            name="contact"
-            className="rounded-lg xl:p-[150px] p-10 items-center bg-neutral-950 text-background [&_a]:text-background flex flex-col gap-10"
-          >
-            <div className="flex md:w-auto w-full items-center md:flex-row flex-col gap-5">
-              <Link
-                className="md:text-2xl text-lg text-center text-balance md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center gap-2.5"
-                href="https://x.com/vojta_holik"
-                target="_blank"
-              >
-                <HugeiconsIcon
-                  icon={NewTwitterIcon}
-                  strokeWidth={2}
-                  className="size-[1.15em] shrink-0"
-                />
-                Follow me on X
-              </Link>
-              <Link
-                className="md:text-2xl text-lg text-center text-balance md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center gap-2.5"
-                href="https://github.com/vojtaholik"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <HugeiconsIcon
-                  icon={GithubIcon}
-                  strokeWidth={2}
-                  className="size-[1.15em] shrink-0"
-                />
-                Browse projects on GitHub
-              </Link>
-              <Link
-                className="md:text-2xl text-lg text-center text-balance md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center gap-2.5"
-                href="mailto:vojta@holik.dev"
-              >
-                <HugeiconsIcon
-                  icon={Mail01Icon}
-                  strokeWidth={2}
-                  className="size-[1.15em] shrink-0"
-                />
-                Email me
-              </Link>
-            </div>
-          </Section>
+          {projects.map((project, index) => (
+            <PortfolioSection
+              key={project.title}
+              contentPosition={index % 2 === 0 ? "left" : "right"}
+              carouselControlsPosition={index % 2 === 0 ? "right" : "left"}
+              backgroundColor={project.backgroundColor}
+              title={project.title}
+              subtitle={project.subtitle}
+              description={project.description}
+              actions={project.actions}
+              imagePath={`/${project.images}`}
+              imagesLoader={getCachedImages(project.images)}
+            />
+          ))}
+          <ContactSection />
         </div>
       </main>
     </IslandProvider>
