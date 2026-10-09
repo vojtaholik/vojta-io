@@ -43,6 +43,7 @@ export default async function Home() {
         >
           <Link
             href="/"
+            aria-label={`${site.name}, home`}
             className="size-24 mb-5 flex p-6 items-center justify-center rounded-full border-4 aspect-square border-foreground"
           >
             <LogoMark className="w-full relative translate-y-0.5" />

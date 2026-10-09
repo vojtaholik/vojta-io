@@ -13,6 +13,7 @@ export default function Island() {
   return (
     <Link
       href="/"
+      aria-label="Vojta Holik, home"
       className={cn(
         "fixed transition scale-100 origin-top-right ease-in-out overflow-hidden right-10 top-10 size-16 mb-5 flex p-3.5 items-center justify-center rounded-full border-3 aspect-square border-foreground",
         {
