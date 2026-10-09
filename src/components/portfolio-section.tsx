@@ -39,14 +39,11 @@ interface PortfolioSectionProps {
   title: string
   subtitle?: string
   description: string | React.ReactNode
-  actions: ActionLink[]
+  actions?: ActionLink[]
 
   // Images
-  imageType: "single" | "carousel"
-  imagePath?: string // For single images or carousel directory
+  imagePath?: string // Carousel directory
   images?: ImageData[] // For carousel
-  singleImageAlt?: string // For single images
-  singleImagePath?: string // For single images
   imagesLoader?: Promise<ProjectImage[]>
 
   // Carousel specific
@@ -60,11 +57,8 @@ export default function PortfolioSection({
   subtitle,
   description,
   actions,
-  imageType,
   imagePath,
-  singleImagePath,
   imagesLoader,
-  singleImageAlt,
   carouselControlsPosition = "right",
 }: PortfolioSectionProps) {
   const { ref: contentRef, height: contentHeight } =
@@ -83,7 +77,7 @@ export default function PortfolioSection({
       >
         <span>{title}</span>
         {subtitle && (
-          <span className="md:text-3xl text-2xl md:mt-2 italic font-light">
+          <span className="md:text-3xl text-2xl md:mt-2 font-light">
             {subtitle}
           </span>
         )}
@@ -99,36 +93,28 @@ export default function PortfolioSection({
         ) : (
           <div className="flex flex-col gap-4">{description}</div>
         )}
-        <div className="flex flex-col gap-4 items-start">
-          {actions.map(({ url, type = "primary", label }, index) => (
-            <Link
-              target="_blank"
-              key={index}
-              href={url}
-              className={cn(`md:text-2xl text-lg`, {
-                "rounded-full hover:bg-foreground hover:text-background border-2 border-foreground px-8 no-underline font-normal py-3 inline-flex items-center justify-center":
-                  type === "primary",
-              })}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
+        {actions && (
+          <div className="flex flex-wrap gap-3 items-center">
+            {actions.map(({ url, type = "primary", label }, index) => (
+              <Link
+                target="_blank"
+                key={index}
+                href={url}
+                className={cn(
+                  "md:text-2xl text-lg rounded-full hover:bg-foreground hover:text-background hover:border-foreground border-2 px-8 no-underline font-normal py-3 inline-flex items-center justify-center",
+                  type === "primary"
+                    ? "border-foreground"
+                    : "border-transparent bg-foreground/10"
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   )
-
-  const renderSingleImage = () =>
-    singleImagePath ? (
-      <div className="py-[6vw] col-span-3 relative z-10">
-        <Image
-          src={singleImagePath}
-          alt={singleImageAlt || title}
-          width={637}
-          height={449}
-        />
-      </div>
-    ) : null
 
   const renderCarousel = () => {
     return (
@@ -161,6 +147,7 @@ export default function PortfolioSection({
                       alt={`${title} ${i + 1}`}
                       width={width}
                       height={height}
+                      sizes="80vw"
                       className="rounded-[1rem]"
                     />
                   </CarouselItem>
@@ -225,6 +212,7 @@ export default function PortfolioSection({
                       alt={`${title} ${i + 1}`}
                       width={width}
                       height={height}
+                      sizes="45vw"
                       className="rounded-[1rem]"
                     />
                   </CarouselItem>
@@ -260,19 +248,11 @@ export default function PortfolioSection({
     )
   }
 
-  const renderVisual = () => {
-    return imageType === "single" && singleImagePath
-      ? renderSingleImage()
-      : renderCarousel()
-  }
-
   return (
     <Section
       name={title.toLowerCase().replace(/\s+/g, "-")}
       className={cn(
-        `md:px-[110px] md:grid flex flex-col overflow-hidden grid-cols-5 ${
-          imageType === "carousel" ? "md:gap-[110px]" : "md:gap-[50px]"
-        } place-items-center rounded-lg`,
+        "md:px-[110px] md:grid flex flex-col overflow-hidden grid-cols-5 md:gap-[110px] place-items-center rounded-lg",
         {
           "bg-sand-background selection:bg-foreground selection:text-sand-background":
             backgroundColor === "sand-background",
@@ -286,6 +266,12 @@ export default function PortfolioSection({
             backgroundColor === "green-background",
           "bg-blue-background selection:bg-foreground selection:text-blue-background":
             backgroundColor === "blue-background",
+          "bg-violet-background selection:bg-foreground selection:text-violet-background":
+            backgroundColor === "violet-background",
+          "bg-lime-background selection:bg-foreground selection:text-lime-background":
+            backgroundColor === "lime-background",
+          "bg-pink-background selection:bg-foreground selection:text-pink-background":
+            backgroundColor === "pink-background",
           "flex-col-reverse": contentPosition === "left",
         }
       )}
@@ -293,11 +279,11 @@ export default function PortfolioSection({
       {contentPosition === "left" ? (
         <>
           {renderContent()}
-          {renderVisual()}
+          {renderCarousel()}
         </>
       ) : (
         <>
-          {renderVisual()}
+          {renderCarousel()}
           {renderContent()}
         </>
       )}

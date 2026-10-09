@@ -16,15 +16,7 @@ export default function Island() {
       className={cn(
         "fixed transition scale-100 origin-top-right ease-in-out overflow-hidden right-10 top-10 size-16 mb-5 flex p-3.5 items-center justify-center rounded-full border-3 aspect-square border-foreground",
         {
-          "opacity-0 scale-0":
-            isInView &&
-            [
-              "course-builder",
-              "ai-hero",
-              "epic-ai",
-              "total-typescript",
-              "epic-react-&-epic-web",
-            ].includes(isInView),
+          "opacity-0 scale-0": isInView && isInView !== "about-me",
         }
       )}
     >

@@ -3,6 +3,12 @@ import PortfolioSection from "@/components/portfolio-section"
 import Island from "@/components/island"
 import { getCachedImages } from "@/lib/images-query"
 import { IslandProvider } from "@/utils/use-island"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  GithubIcon,
+  Mail01Icon,
+  NewTwitterIcon,
+} from "@hugeicons/core-free-icons"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -76,7 +82,7 @@ export default async function Home() {
                   developer courses on the internet.
                 </p>
                 <p>
-                  Since 2020, I&apos;ve been building custom course platforms
+                  Since 2018, I&apos;ve been building custom course platforms
                   with{" "}
                   <Link
                     className="font-semibold"
@@ -93,7 +99,7 @@ export default async function Home() {
                   >
                     egghead.io
                   </Link>
-                  ) using our open-source CMS, Course Builder.
+                  ) using our own CMS, Course Builder.
                 </p>
                 <p>
                   I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
@@ -137,7 +143,7 @@ export default async function Home() {
                   developer courses on the internet.
                 </p>
                 <p>
-                  Since 2020, I&apos;ve been building custom course platforms
+                  Since 2018, I&apos;ve been building custom course platforms
                   with{" "}
                   <Link
                     className="font-semibold"
@@ -154,7 +160,7 @@ export default async function Home() {
                   >
                     egghead.io
                   </Link>
-                  ) using our open-source CMS, Course Builder.
+                  ) using our own CMS, Course Builder.
                 </p>
                 <p>
                   I&apos;ve helped creators like <strong>Kent C. Dodds</strong>{" "}
@@ -177,6 +183,98 @@ export default async function Home() {
             </div>
           </section>
           <PortfolioSection
+            contentPosition="left"
+            backgroundColor="violet-background"
+            selectionBg="foreground"
+            selectionText="violet-background"
+            title="AI Coding Dictionary"
+            subtitle="with Matt Pocock"
+            description={
+              <p>
+                Matt wrote a plain-English dictionary of the words people throw
+                around when they talk about AI coding. I designed and built the
+                site for it, a 3D graph of{" "}
+                <strong className="bg-foreground text-violet-background px-1 py-0.5">
+                  71 terms
+                </strong>{" "}
+                with 543 links between them. Click a term and the camera flies
+                to it. Search, and everything that doesn&apos;t match fades
+                out.
+              </p>
+            }
+            actions={[
+              {
+                label: "View Live ↗︎",
+                url: "https://www.aicodingdictionary.com",
+              },
+            ]}
+            imagePath="/ai-coding-dictionary"
+            imagesLoader={getCachedImages("ai-coding-dictionary")}
+            carouselControlsPosition="right"
+          />
+          <PortfolioSection
+            contentPosition="right"
+            backgroundColor="lime-background"
+            selectionBg="foreground"
+            selectionText="lime-background"
+            title="good-css.com"
+            subtitle="open-source agent skill"
+            description={
+              <p>
+                Coding agents know :has(), subgrid and anchor positioning. They
+                rarely reach for them. I built good-css so they do. It packs{" "}
+                <strong className="bg-foreground text-lime-background px-1 py-0.5">
+                  47
+                </strong>{" "}
+                modern CSS techniques into an agent skill, and the site runs
+                every one of them as a live specimen.
+              </p>
+            }
+            actions={[
+              {
+                label: "View Live ↗︎",
+                url: "https://good-css.com",
+              },
+              {
+                label: "GitHub ↗︎",
+                url: "https://github.com/vojtaholik/good-css",
+                type: "secondary",
+              },
+            ]}
+            imagePath="/good-css"
+            imagesLoader={getCachedImages("good-css")}
+            carouselControlsPosition="left"
+          />
+          <PortfolioSection
+            contentPosition="left"
+            backgroundColor="pink-background"
+            selectionBg="foreground"
+            selectionText="pink-background"
+            title="Stick'em Up"
+            subtitle="stickers.badass.dev"
+            description={
+              <p>
+                A clean laptop is a sad laptop. So I built a page where you
+                stick Badass stickers on the lid of a 3D MacBook. I made the
+                stickers too, with a tool I built for it. The music is made
+                right in your browser and builds with every sticker.{" "}
+                <strong className="bg-foreground text-pink-background px-1 py-0.5">
+                  It&apos;s fun
+                </strong>{" "}
+                and you should try it.
+              </p>
+            }
+            actions={[
+              {
+                label: "View Live ↗︎",
+                url: "https://stickers.badass.dev",
+              },
+            ]}
+            imagePath="/stickers"
+            imagesLoader={getCachedImages("stickers")}
+            carouselControlsPosition="right"
+          />
+          <PortfolioSection
             contentPosition="right"
             backgroundColor="sand-background"
             selectionBg="foreground"
@@ -193,15 +291,9 @@ export default async function Home() {
                 </strong>
               </p>
             }
-            actions={[
-              {
-                label: "GitHub ↗︎",
-                url: "https://github.com/badass-courses/course-builder",
-              },
-            ]}
-            imageType="single"
-            singleImageAlt="Course Builder Thumbnail"
-            singleImagePath="/course-builder-thumb.png"
+            imagePath="/course-builder"
+            imagesLoader={getCachedImages("course-builder")}
+            carouselControlsPosition="left"
           />
 
           <PortfolioSection
@@ -230,7 +322,6 @@ export default async function Home() {
                 url: "https://aihero.dev",
               },
             ]}
-            imageType="carousel"
             imagePath="/ai-hero"
             imagesLoader={getCachedImages("ai-hero")}
             carouselControlsPosition="right"
@@ -261,7 +352,6 @@ export default async function Home() {
                 url: "https://totaltypescript.com",
               },
             ]}
-            imageType="carousel"
             imagePath="/total-typescript"
             images={[
               { w: 712, h: 414 },
@@ -271,7 +361,7 @@ export default async function Home() {
             imagesLoader={getCachedImages("total-typescript")}
             carouselControlsPosition="left"
           />
-          <PortfolioSection
+          {/* <PortfolioSection
             contentPosition="left"
             backgroundColor="purple-background"
             selectionBg="foreground"
@@ -296,13 +386,12 @@ export default async function Home() {
                 type: "primary",
               },
             ]}
-            imageType="carousel"
             imagePath="/epic-ai"
             imagesLoader={getCachedImages("epic-ai")}
             carouselControlsPosition="right"
-          />
+          /> */}
           <PortfolioSection
-            contentPosition="right"
+            contentPosition="left"
             backgroundColor="blue-background"
             selectionBg="foreground"
             selectionText="blue-background"
@@ -329,10 +418,9 @@ export default async function Home() {
                 type: "primary",
               },
             ]}
-            imageType="carousel"
             imagePath="/epic-web"
             imagesLoader={getCachedImages("epic-web")}
-            carouselControlsPosition="left"
+            carouselControlsPosition="right"
           />
           <Section
             name="contact"
@@ -340,25 +428,40 @@ export default async function Home() {
           >
             <div className="flex md:w-auto w-full items-center md:flex-row flex-col gap-5">
               <Link
-                className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
+                className="md:text-2xl text-lg text-center text-balance md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center gap-2.5"
                 href="https://x.com/vojta_holik"
                 target="_blank"
               >
+                <HugeiconsIcon
+                  icon={NewTwitterIcon}
+                  strokeWidth={2}
+                  className="size-[1.15em] shrink-0"
+                />
                 Follow me on X
               </Link>
               <Link
-                className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
+                className="md:text-2xl text-lg text-center text-balance md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center gap-2.5"
                 href="https://github.com/vojtaholik"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Browse projects on GitHub ↗
+                <HugeiconsIcon
+                  icon={GithubIcon}
+                  strokeWidth={2}
+                  className="size-[1.15em] shrink-0"
+                />
+                Browse projects on GitHub
               </Link>
               <Link
-                className="text-2xl md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center"
+                className="md:text-2xl text-lg text-center text-balance md:w-auto w-full font-semibold hover:bg-neutral-900 no-underline px-5 py-3 rounded-full border-2 border-background inline-flex items-center justify-center gap-2.5"
                 href="mailto:vojta@holik.dev"
               >
-                Email me ↗︎
+                <HugeiconsIcon
+                  icon={Mail01Icon}
+                  strokeWidth={2}
+                  className="size-[1.15em] shrink-0"
+                />
+                Email me
               </Link>
             </div>
           </Section>

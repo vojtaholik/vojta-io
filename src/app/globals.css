@@ -52,6 +52,9 @@
   --color-teal-background: var(--teal-background);
   --color-purple-background: var(--purple-background);
   --color-blue-background: var(--blue-background);
+  --color-violet-background: var(--violet-background);
+  --color-lime-background: var(--lime-background);
+  --color-pink-background: var(--pink-background);
 }
 
 :root {
@@ -61,6 +64,9 @@
   --teal-background: oklch(0.8748 0.0514 207.06);
   --purple-background: oklch(0.9244 0.0081 293.9);
   --blue-background: oklch(0.9308 0.0339 253.71);
+  --violet-background: oklch(0.83 0.075 285);
+  --lime-background: oklch(0.91 0.115 118);
+  --pink-background: oklch(0.86 0.075 355);
 
   --radius: 5vw;
   --background: oklch(0.968 0.0114 84.58);
