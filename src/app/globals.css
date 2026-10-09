@@ -136,6 +136,20 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* The carousel arrows repeat on every slide deck, so the button styles they
+   share live here once instead of in each class attribute. */
+@utility carousel-button {
+  @apply inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs dark:bg-input/30 dark:border-input dark:hover:bg-input/50 rounded-full;
+
+  & svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
