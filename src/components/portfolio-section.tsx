@@ -269,6 +269,8 @@ export default function PortfolioSection({
             backgroundColor === "lime-background",
           "bg-pink-background selection:bg-foreground selection:text-pink-background":
             backgroundColor === "pink-background",
+          "bg-red-background selection:bg-foreground selection:text-red-background":
+            backgroundColor === "red-background",
           "flex-col-reverse": contentPosition === "left",
         }
       )}

@@ -55,6 +55,7 @@
   --color-violet-background: var(--violet-background);
   --color-lime-background: var(--lime-background);
   --color-pink-background: var(--pink-background);
+  --color-red-background: var(--red-background);
 }
 
 :root {
@@ -67,6 +68,7 @@
   --violet-background: oklch(0.83 0.075 285);
   --lime-background: oklch(0.91 0.115 118);
   --pink-background: oklch(0.86 0.075 355);
+  --red-background: oklch(0.76 0.13 22);
 
   --radius: 5vw;
   --background: oklch(0.968 0.0114 84.58);

@@ -15,7 +15,7 @@ export const site = {
   email: "vojta@holik.dev",
   x: "https://x.com/vojta_holik",
   github: "https://github.com/vojtaholik",
-  updated: "2026-10-09",
+  updated: "2026-10-12",
 }
 
 export const about: ReactNode[] = [
@@ -159,6 +159,25 @@ export const projects: Project[] = [
     ),
     actions: [{ label: "View Live", url: "https://aihero.dev" }],
     images: "ai-hero",
+  },
+  {
+    title: "MEGA.dev",
+    subtitle: "with BRAVE",
+    backgroundColor: "red-background",
+    description: (
+      <p>
+        MEGA is a four-week program for developers who already build with AI.
+        Kent C. Dodds, Angie Jones, John Lindquist and Theo Browne teach it. I
+        lead the design and build the platform with the team. My favorite part
+        is the{" "}
+        <strong className="bg-foreground text-red-background px-1 py-0.5">
+          card deck
+        </strong>
+        . Ship a checkpoint and a card flips over for you to keep.
+      </p>
+    ),
+    actions: [{ label: "View Live", url: "https://mega.dev" }],
+    images: "mega",
   },
   {
     title: "Total TypeScript",
